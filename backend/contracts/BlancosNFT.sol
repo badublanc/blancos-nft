@@ -1,53 +1,56 @@
-// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 import "./Ownableish.sol";
 import "./Stringish.sol";
 import "@rari-capital/solmate/src/tokens/ERC721.sol";
 import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
+import "@rari-capital/solmate/src/utils/ReentrancyGuard.sol";
 
-error DoesNotExist();
-error NoTokensLeft();
-error NotEnoughETH();
+error MaxDecreasedOrUnchanged(uint256 currentMax);
+error TokenAlreadyMinted(uint256 tokenId);
+error TokenDoesNotExist(uint256 tokenId);
+error WrongEtherAmount(uint256 requiredAmount);
 
-contract ERC721Token is Ownableish, ERC721 {
+contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
   using Stringish for uint256;
-  uint256 public constant TOTAL_SUPPLY = 10_000;
-  uint256 public constant PRICE_PER_MINT = 0.05 ether;
 
+  uint256 public PRICE_PER_MINT = 0.06 ether;
+  string public baseURI = "https://localhost:3000/api/token/";
+
+  uint256 public MAX_SUPPLY = 10;
   uint256 public totalSupply;
 
-  string public baseURI;
+  constructor() payable ERC721("Blancos", "BLANCO") {}
 
-  constructor(
-    string memory name,
-    string memory symbol,
-    string memory _baseURI
-  ) payable ERC721(name, symbol) {
+  function mint(uint256 id) external payable nonReentrant {
+    if (id == 0 || id > MAX_SUPPLY) revert TokenDoesNotExist(id);
+    if (ownerOf[id] != address(0)) revert TokenAlreadyMinted(id);
+    if (msg.value < PRICE_PER_MINT) revert WrongEtherAmount(PRICE_PER_MINT);
+    totalSupply++;
+    _mint(msg.sender, id);
+  }
+
+  function _setMintPrice(uint256 _price) external onlyOwner {
+    PRICE_PER_MINT = _price;
+  }
+
+  function _setBaseURI(string memory _baseURI) external onlyOwner {
     baseURI = _baseURI;
   }
 
-  function mint(uint16 amount) external payable {
-    if (totalSupply + amount >= TOTAL_SUPPLY) revert NoTokensLeft();
-    if (msg.value < amount * PRICE_PER_MINT) revert NotEnoughETH();
+  function _setMaxSupply(uint256 _max) external onlyOwner {
+    if (_max <= MAX_SUPPLY) revert MaxDecreasedOrUnchanged(MAX_SUPPLY);
+    MAX_SUPPLY = _max;
+  }
 
-    unchecked {
-      for (uint16 index = 0; index < amount; index++) {
-        _mint(msg.sender, totalSupply++);
-      }
-    }
+  function withdraw() external onlyOwner {
+    SafeTransferLib.safeTransferETH(msg.sender, address(this).balance);
   }
 
   function tokenURI(uint256 id) public view override returns (string memory) {
-    if (ownerOf[id] == address(0)) revert DoesNotExist();
-
+    if (ownerOf[id] == address(0)) revert TokenDoesNotExist(id);
     return string(abi.encodePacked(baseURI, id.toString()));
-  }
-
-  function withdraw() external {
-    if (msg.sender != _owner) revert NotOwner();
-
-    SafeTransferLib.safeTransferETH(msg.sender, address(this).balance);
   }
 
   function supportsInterface(bytes4 interfaceId)
