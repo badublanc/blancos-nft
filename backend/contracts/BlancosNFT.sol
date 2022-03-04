@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "./Ownableish.sol";
+import "./Strings.sol";
 import "@rari-capital/solmate/src/tokens/ERC721.sol";
 import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 
@@ -10,6 +11,7 @@ error NoTokensLeft();
 error NotEnoughETH();
 
 contract ERC721Token is Ownableish, ERC721 {
+		using Strings for uint256;
     uint256 public constant TOTAL_SUPPLY = 10_000;
     uint256 public constant PRICE_PER_MINT = 0.05 ether;
 
@@ -39,7 +41,7 @@ contract ERC721Token is Ownableish, ERC721 {
     function tokenURI(uint256 id) public view override returns (string memory) {
         if (ownerOf[id] == address(0)) revert DoesNotExist();
 
-        return string(abi.encodePacked(baseURI, id));
+        return string(abi.encodePacked(baseURI, id.toString()));
     }
 
     function withdraw() external {
