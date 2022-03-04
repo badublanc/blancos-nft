@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity ^0.8.9;
 
-import "./LilOwnable.sol";
+import "./Ownableish.sol";
 import "@rari-capital/solmate/src/tokens/ERC721.sol";
 import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 
@@ -9,7 +9,7 @@ error DoesNotExist();
 error NoTokensLeft();
 error NotEnoughETH();
 
-contract ERC721Token is LilOwnable, ERC721 {
+contract ERC721Token is Ownableish, ERC721 {
     uint256 public constant TOTAL_SUPPLY = 10_000;
     uint256 public constant PRICE_PER_MINT = 0.05 ether;
 
@@ -51,7 +51,7 @@ contract ERC721Token is LilOwnable, ERC721 {
     function supportsInterface(bytes4 interfaceId)
         public
         pure
-        override(LilOwnable, ERC721)
+        override(Ownableish, ERC721)
         returns (bool)
     {
         return
