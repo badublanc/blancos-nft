@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="flex-grow sm:flex-grow-0 flex items-center justify-between">
-			<a href="#" class="flex items-center space-x-1 hoverToBlack pl-2.5 py-1 sm:py-0">
+			<a href="#" class="flex items-center space-x-1 hoverToBlack pl-1 sm:pl-2.5 py-1 sm:py-0">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-4 w-4"
@@ -40,7 +40,7 @@
 				<p class="b-navText">Prev</p>
 			</a>
 
-			<a href="#" class="flex items-center space-x-1 hoverToBlack pr-2.5 py-1 sm:py-0">
+			<a href="#" class="flex items-center space-x-1 hoverToBlack pr-1 sm:pr-2.5 py-1 sm:py-0">
 				<p class="b-navText">Next</p>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
