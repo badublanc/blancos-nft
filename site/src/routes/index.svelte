@@ -30,7 +30,7 @@
 	});
 </script>
 
-{#if provider}
+<!-- {#if provider}
 	{#if signer}
 		<p>Hi, {displayName}!</p>
 	{:else}
@@ -38,4 +38,4 @@
 	{/if}
 {:else}
 	<p>install metamask ;)</p>
-{/if}
+{/if} -->
