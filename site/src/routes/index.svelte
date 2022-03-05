@@ -4,6 +4,8 @@
 
 	let provider, signer, address, ensName;
 
+	$: displayName = ensName || address;
+
 	const connectWallet = async () => {
 		await provider.send('eth_requestAccounts', []);
 		signer = provider.getSigner();
@@ -25,7 +27,7 @@
 
 {#if provider}
 	{#if signer}
-		<p>Hi, {ensName || address}!</p>
+		<p>Hi, {displayName}!</p>
 	{:else}
 		<button on:click={connectWallet}>Connect Wallet</button>
 	{/if}
