@@ -4,7 +4,7 @@
 
 	let provider, signer, address, ensName;
 
-	$: displayName = ensName || address;
+	$: displayName = ensName || shortenAddress(address);
 
 	const connectWallet = async () => {
 		await provider.send('eth_requestAccounts', []);
@@ -15,7 +15,12 @@
 
 	const checkForENS = async (_address) => {
 		if (!_address) return null;
-		return (await provider.lookupAddress(_address)) || _address;
+		return await provider.lookupAddress(_address);
+	};
+
+	const shortenAddress = (_address) => {
+		if (!_address) return null;
+		return _address.substring(0, 6) + '...' + _address.substring(_address.length - 4);
 	};
 
 	onMount(async () => {
