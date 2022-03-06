@@ -1,8 +1,8 @@
 <header class="max-w-5xl mx-auto">
 	<div
-		class="flex items-center justify-between sm:justify-center border-b-2 border-black mx-4 py-2 sm:py-4 lg:py-6"
+		class="flex items-center justify-between sm:justify-center border-b-2 border-black mx-4 mt-1 py-2 sm:py-4 lg:py-6"
 	>
-		<p class="font-display uppercase text-4xl sm:text-5xl">Blancos</p>
+		<a href="/" class="font-display uppercase text-4xl sm:text-5xl">Blancos</a>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="h-6 w-6 sm:hidden"
