@@ -18,8 +18,9 @@ contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
   uint256 public PRICE_PER_MINT = 0.06 ether;
   string public baseURI = "https://localhost:3000/api/token/";
 
-  uint256 public MAX_SUPPLY = 10;
   uint256 public totalSupply;
+  uint256 public MAX_SUPPLY = 10;
+  event MaxSupplyIncreased(uint256 maxSupply);
 
   constructor() payable ERC721("Blancos", "BLANCO") {}
 
@@ -42,6 +43,7 @@ contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
   function _setMaxSupply(uint256 _max) external onlyOwner {
     if (_max <= MAX_SUPPLY) revert MaxDecreasedOrUnchanged(MAX_SUPPLY);
     MAX_SUPPLY = _max;
+    emit MaxSupplyIncreased(_max);
   }
 
   function withdraw() external onlyOwner {
