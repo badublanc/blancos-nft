@@ -1,29 +1,32 @@
 <header class="max-w-5xl mx-auto">
 	<div
-		class="flex items-center justify-between sm:justify-center border-b-2 border-black mx-4 mt-1 py-2 sm:py-4 lg:py-6"
+		class="flex items-center justify-center border-b-2 border-black mx-4 mt-1 py-2 sm:py-4 lg:py-6"
 	>
 		<a href="/" class="font-display uppercase text-4xl sm:text-5xl">Blancos</a>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			class="h-6 w-6 sm:hidden"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-			stroke-width="2"
-		>
-			<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-		</svg>
+
+		<!-- <button class="sm:hidden">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		</button> -->
 	</div>
 
 	<nav class="mx-4 flex items-center justify-between">
-		<div class="hidden sm:flex">
-			<a href="#" class="b-navText hoverToBlack">About</a>
-			<a href="#" class="b-navText hoverToBlack">Archive</a>
+		<div class="flex justify-between flex-grow sm:flex-grow-0 items-center">
+			<!-- <a href="#" class="b-navText hoverToBlack">About</a> -->
+			<!-- <a href="#" class="b-navText hoverToBlack">Archive</a> -->
 			<a href="#" class="b-navText hoverToBlack">Latest</a>
 			<a href="#" class="b-navText hoverToBlack">Random</a>
 		</div>
 
-		<div class="flex-grow sm:flex-grow-0 flex items-center justify-between">
+		<div class="flex-grow sm:flex-grow-0 items-center justify-between hidden sm:flex">
 			<a href="#" class="flex items-center space-x-1 hoverToBlack pl-1 sm:pl-2.5 py-1 sm:py-0">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +69,7 @@
 
 <style>
 	.b-navText {
-		@apply uppercase text-xs px-2.5 pt-2 pb-2;
+		@apply uppercase text-xs px-1.5 sm:px-2.5 pt-2 pb-2;
 	}
 
 	.hoverToBlack {
