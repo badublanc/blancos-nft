@@ -2,7 +2,7 @@
 	<div class="grid grid-cols-5 sm:grid-cols-9 max-w-5xl mx-auto w-full my-4 sm:my-6">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="col-span-3 col-start-2 sm:col-start-4 text-gray-900"
+			class="col-span-3 col-start-2 sm:col-start-4 text-gray-900 w-full"
 			viewBox="0 0 294 39"
 			fill="currentColor"
 		>
