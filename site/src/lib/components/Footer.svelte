@@ -1,5 +1,5 @@
 <footer class="max-w-5xl mx-auto">
-	<div class="mx-4 px-1 flex items-center justify-between my-2">
+	<div class="mx-4 px-1.5 flex items-center justify-between my-2">
 		<p class="text-sm break-all">Bienvenue!</p>
 
 		<p class="text-sm">Connect Wallet</p>
