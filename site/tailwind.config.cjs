@@ -6,8 +6,8 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				display: ['Poller One', ...defaultTheme.fontFamily.sans],
-				sans: ['Inter', ...defaultTheme.fontFamily.sans]
+				display: ['Righteous', ...defaultTheme.fontFamily.sans],
+				sans: ['DM Sans', ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},

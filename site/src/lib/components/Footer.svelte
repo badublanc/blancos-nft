@@ -1,5 +1,5 @@
 <script>
-	import { providers, signer, user } from '$lib/stores.js';
+	import { providers, signer, user, initContract, Contract } from '$lib/stores.js';
 	import { shortenAddress } from '$lib/utils.js';
 
 	$: provider = $providers.browser || $providers.default;
@@ -8,6 +8,8 @@
 	const connectWallet = async () => {
 		await provider.send('eth_requestAccounts', []);
 		$signer = provider.getSigner();
+		await initContract($signer);
+
 		$user.address = await $signer.getAddress();
 		$user.ens = await checkForENS($user.address);
 	};
@@ -16,6 +18,7 @@
 		$signer = null;
 		$user.address = null;
 		$user.ens = null;
+		$Contract = null;
 	};
 
 	const checkForENS = async (_address) => {

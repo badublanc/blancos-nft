@@ -1,7 +1,16 @@
 /* Write your global styles here, in PostCSS syntax */
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Righteous&display=swap');
 @import url('https://rsms.me/inter/inter.css');
 
 @tailwind base;
+
+body {
+	@apply bg-violet-50 selection:bg-green-200;
+}
+
+.leadItem {
+	@apply font-bold text-lg uppercase;
+}
+
 @tailwind components;
 @tailwind utilities;
