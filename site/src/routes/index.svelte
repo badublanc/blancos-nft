@@ -18,7 +18,7 @@
 		</header>
 
 		<main>
-			<!-- <CollectionGrid /> -->
+			<CollectionGrid />
 			<!-- <ArticleList /> -->
 		</main>
 
