@@ -8,15 +8,17 @@ import "@rari-capital/solmate/src/utils/SafeTransferLib.sol";
 import "@rari-capital/solmate/src/utils/ReentrancyGuard.sol";
 
 error MaxDecreasedOrUnchanged(uint256 currentMax);
+error SalesCurrentlyPaused();
 error TokenAlreadyMinted(uint256 tokenId);
 error TokenDoesNotExist(uint256 tokenId);
-error WrongEtherAmount(uint256 requiredAmount);
+error WrongEtherAmount(uint256 required);
 
 contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
   using Stringish for uint256;
 
-  uint256 public PRICE_PER_MINT = 0.06 ether;
+  uint256 public PRICE_PER_MINT = 0.10 ether;
   string public baseURI = "https://localhost:3000/api/token/";
+  bool public isPaused = false;
 
   uint256 public totalSupply;
   uint256 public MAX_SUPPLY = 10;
@@ -24,12 +26,21 @@ contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
 
   constructor() payable ERC721("Blancos", "BLANCO") {}
 
-  function mint(uint256 id) external payable nonReentrant {
+  modifier whenNotPaused() {
+    if (isPaused) revert SalesCurrentlyPaused();
+    _;
+  }
+
+  function mint(uint256 id) external payable whenNotPaused nonReentrant {
     if (id == 0 || id > MAX_SUPPLY) revert TokenDoesNotExist(id);
     if (ownerOf[id] != address(0)) revert TokenAlreadyMinted(id);
     if (msg.value < PRICE_PER_MINT) revert WrongEtherAmount(PRICE_PER_MINT);
-    totalSupply++;
+    ++totalSupply;
     _mint(msg.sender, id);
+  }
+
+  function togglePause() external onlyOwner {
+    isPaused = !isPaused;
   }
 
   function _setMintPrice(uint256 _price) external onlyOwner {
