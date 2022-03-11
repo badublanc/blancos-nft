@@ -18,12 +18,12 @@ describe("NFT Contract", function () {
   });
 
   describe("Setup", async () => {
-    it("Name should be: Blancos", async () => {
-      expect(await contract.name()).to.equal("Blancos");
+    it("Name should be: Boundless Blancos", async () => {
+      expect(await contract.name()).to.equal("Boundless Blancos");
     });
 
-    it("Symbol should be: BLANCO", async () => {
-      expect(await contract.symbol()).to.equal("BLANCO");
+    it("Symbol should be: BLANCOS", async () => {
+      expect(await contract.symbol()).to.equal("BLANCOS");
     });
   });
 
@@ -145,8 +145,6 @@ describe("NFT Contract", function () {
     });
 
     it("Should withdraw balance for owner only", async () => {
-      let ownerBalance = await ethers.provider.getBalance(owner.address);
-
       for (let i = 1; i <= maxSupply; i++) {
         await contract.connect(user1).mint(i, { value: mintPrice });
       }
@@ -160,8 +158,6 @@ describe("NFT Contract", function () {
       await contract.withdraw();
       balance = await ethers.provider.getBalance(contract.address);
       expect(balance).to.equal(0);
-
-      // expect(ownerBalance).to.equal(ownerBalance.add(mintPrice.mul(maxSupply)));
     });
   });
 });
