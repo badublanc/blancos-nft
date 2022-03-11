@@ -2,7 +2,7 @@ export const get = async ({ params }) => {
 	let metadata = {
 		name: '#' + params.id,
 		description: 'Boundless Blancos. Mint + reveal coming soon.',
-		image: 'https://assets.blancos-cdn.com/boundless/404.png'
+		image: 'https://assets.blancos-cdn.com/boundless/404sq.png'
 	};
 
 	return {
