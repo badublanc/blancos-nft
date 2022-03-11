@@ -1,7 +1,10 @@
 import BoundlessABI from './contracts/BlancosNFT.json';
 
 export const variables = {
-	network: import.meta.env.VITE_ETH_NETWORK,
+	network: {
+		name: import.meta.env.VITE_NETWORK_NAME,
+		chainId: import.meta.env.VITE_NETWORK_CHAINID
+	},
 	boundless: {
 		address: import.meta.env.VITE_BOUNDLESS_CONTRACT,
 		abi: BoundlessABI

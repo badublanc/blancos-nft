@@ -6,7 +6,7 @@ export const readOnlyContract = readable(
 	new ethers.Contract(
 		variables.boundless.address,
 		variables.boundless.abi,
-		ethers.providers.getDefaultProvider(variables.network)
+		ethers.providers.getDefaultProvider(variables.network.name)
 	)
 );
 export const Contract = writable(null);
