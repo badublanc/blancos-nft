@@ -17,7 +17,7 @@ contract BlancosNFT is Ownableish, ReentrancyGuard, ERC721 {
   using Stringish for uint256;
 
   uint256 public PRICE_PER_MINT = 0.10 ether;
-  string public baseURI = "https://blancos.xyz/api/boundless/tokens/";
+  string public baseURI = "https://blancos.xyz/api/boundless/";
   bool public isPaused = false;
 
   uint256 public totalSupply;
