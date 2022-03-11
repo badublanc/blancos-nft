@@ -19,12 +19,12 @@
 	<div class="container lg:max-w-7xl mx-auto grid md:grid-cols-2 gap-4 lg:gap-8 px-4">
 		{#each items as item}
 			<div class="flex flex-col space-y-2">
-				<a href={`/collection/${item.id}`} class="overflow-hidden flex">
+				<a href="#" class="overflow-hidden flex">
 					{#if item.image_url}
 						<img
 							src={item.image_url}
 							alt=""
-							class="aspect-video object-cover hover:scale-110 transition-all duration-300"
+							class="aspect-video object-cover hover:scale-105 transition-all duration-300"
 						/>
 					{:else}
 						<div
@@ -33,13 +33,13 @@
 					{/if}
 				</a>
 
-				<div class="flex justify-between">
+				<!-- <div class="flex justify-between">
 					<div class="">
 						<p class="text-base">Blanco #{item.id}</p>
 						<p class="text-xs pl-0.5">released 3 days ago</p>
 					</div>
 					<button class="bg-black text-white px-6 py-1">Mint</button>
-				</div>
+				</div> -->
 			</div>
 		{/each}
 

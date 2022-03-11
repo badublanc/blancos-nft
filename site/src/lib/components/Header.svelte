@@ -3,6 +3,20 @@
 	import { shortenAddress } from '$lib/utils.js';
 
 	export let title = 'Blancos';
+	let navItems = [
+		{
+			name: 'Periodicals',
+			slug: 'periodicals'
+		},
+		{
+			name: 'Collection',
+			slug: 'collection'
+		},
+		{
+			name: 'Blog',
+			slug: 'blog'
+		}
+	];
 
 	$: titleStyle = title == 'Blancos' ? 'homeTitleStyle' : 'pageTitleStyle';
 	$: provider = $providers.browser || $providers.default;
@@ -40,16 +54,13 @@
 
 		<div class="lg:col-span-2 hidden md:flex items-center justify-between mt-20 lg:mt-24 mb-5">
 			<div class="hidden md:flex items-center space-x-10">
-				<a
-					href="#"
-					class="leadItem border-b border-violet-50 hover:border-black transition-all duration-300"
-					>Collection</a
-				>
-				<a
-					href="#"
-					class="leadItem border-b border-violet-50 hover:border-black transition-all duration-300"
-					>Blog</a
-				>
+				<!-- {#each navItems as item}
+					<a
+						href={`/${item.slug}`}
+						class="leadItem border-b border-violet-50 hover:border-black transition-all duration-300"
+						>{item.name}</a
+					>
+				{/each} -->
 			</div>
 
 			{#if $signer}

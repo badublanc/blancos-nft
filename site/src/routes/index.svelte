@@ -1,9 +1,14 @@
 <script>
 	import TopBar from '$lib/components/TopBar.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import Banner from '$lib/components/Banner.svelte';
 	import ArticleList from '$lib/components/ArticleList.svelte';
 	import CollectionGrid from '$lib/components/CollectionGrid.svelte';
 </script>
+
+<svelte:head>
+	<title>Blancos. For the builders.</title>
+</svelte:head>
 
 <div class="min-h-screen">
 	<div class="flex flex-col">
@@ -18,8 +23,11 @@
 		</header>
 
 		<main>
-			<CollectionGrid />
-			<!-- <ArticleList /> -->
+			<Banner>
+				<p class="text-center text-sm md:text-lg">Minting begins Tuesday, March 15 at 12pm CST.</p>
+			</Banner>
+			<!-- <ArticleList />
+			<CollectionGrid /> -->
 		</main>
 
 		<!-- <footer></footer> -->

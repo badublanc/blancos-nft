@@ -2,14 +2,10 @@ import { readable, writable } from 'svelte/store';
 import { ethers } from 'ethers';
 import ABI from './contracts/BlancosNFT.json';
 
-const contractAddress = '0x5fbdb2315678afecb367f032d93f642f64180aa3';
+const contractAddress = '0x2B211F3ba5Ec656f923D86988bB8aeC0C5E0cf6a';
 
 export const readOnlyContract = readable(
-	new ethers.Contract(
-		contractAddress,
-		ABI,
-		ethers.providers.getDefaultProvider('http://localhost:8545')
-	)
+	new ethers.Contract(contractAddress, ABI, ethers.providers.getDefaultProvider('rinkeby'))
 );
 export const Contract = writable(null);
 export const initContract = async (_signer) => {
