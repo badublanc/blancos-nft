@@ -449,6 +449,13 @@
   dependencies:
     esbuild "^0.14.21"
 
+"@sveltejs/adapter-cloudflare@^1.0.0-next.15":
+  version "1.0.0-next.15"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-cloudflare/-/adapter-cloudflare-1.0.0-next.15.tgz#e486d71e8c00eb0cf93b36e3c36a7db437bba490"
+  integrity sha512-kq3vNFpKmRVgAOfz4HrcleBnUADs++dfVF8S61EAFqNTEvGtOVdJKLql66Pe/uxlY0VxAp1dplxtEDf4/R70lQ==
+  dependencies:
+    esbuild "^0.14.21"
+
 "@sveltejs/adapter-netlify@1.0.0-next.49":
   version "1.0.0-next.49"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-netlify/-/adapter-netlify-1.0.0-next.49.tgz#c86695a0da1ac957b0a8e589bdaf1312b86a126f"
@@ -458,13 +465,6 @@
     esbuild "^0.14.21"
     tiny-glob "^0.2.9"
 
-"@sveltejs/adapter-static@^1.0.0-next.29":
-  version "1.0.0-next.29"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.29.tgz#bdc5df5c174a2b2405622eca1817cf6850869dc6"
-  integrity sha512-0hjGnfT3BRyoHnzJ2w0/xL+xICRpKneDTm45ZzggiRrc0r71WJfF6toGeg8N4QUQnj8EJ3Itm453gsS1kt7VUQ==
-  dependencies:
-    tiny-glob "^0.2.9"
-
 "@sveltejs/adapter-vercel@1.0.0-next.45":
   version "1.0.0-next.45"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-vercel/-/adapter-vercel-1.0.0-next.45.tgz#ec1af5941fe2117b4e2a0979cb2fae804fcaba64"
@@ -472,10 +472,10 @@
   dependencies:
     esbuild "^0.14.21"
 
-"@sveltejs/kit@next":
-  version "1.0.0-next.291"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.291.tgz#5b6541d8567b61eb86cad76671214997aafaf719"
-  integrity sha512-mFd1EJbxoyPGiomYwYhZnjNLPYahCC2gHfKvPetguL/7BCHcyUjjYQbwTTmjVxtgBs0oLzKVA9bt45gpr9JqBQ==
+"@sveltejs/kit@^1.0.0-next.291":
+  version "1.0.0-next.295"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.295.tgz#2874cf4f6eb172124b050242d8a30099b3c3aa70"
+  integrity sha512-4pO/swXByhU+7bhNikTjh1d4QxAMP9TZ74p7sdPuyJf5cg7Zrfk1nBtaMt0R+8+5j1xfC/XWRcxa3WnhT9bQMA==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^1.0.0-next.32"
     sade "^1.7.4"
