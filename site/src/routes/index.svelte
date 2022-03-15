@@ -24,7 +24,7 @@
 
 		<main>
 			<Banner>
-				<p class="text-center text-sm md:text-lg">Minting begins Tuesday, March 15 at 12pm CST.</p>
+				<p class="text-center text-sm md:text-lg">Mint date coming soon...</p>
 			</Banner>
 			<!-- <ArticleList />
 			<CollectionGrid /> -->
